@@ -1,4 +1,5 @@
-<?xml version="1.0"?>
+<cfxml variable="REQUEST.Response"
+    ><?xml version="1.0"?>
 <project name="Rectangle-Build" default="main" basedir=".">
   <property environment="env"/>
 
