@@ -51,7 +51,7 @@ pipeline {
     }
 
     stage("Reset Docker") {
-      agent all
+      agent any
       steps {
         sh "systemctl daemon-reload"
         sh "systemctl restart docker"
