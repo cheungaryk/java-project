@@ -55,6 +55,8 @@ pipeline {
         docker 'openjdk:8u121-jre'
       }
       steps {
+        sh "systemctl daemon-reload"
+        sh "systemctl restart docker"
         sh "wget http://cheungaryk6.mylabserver.com/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar 3 4"
       }
