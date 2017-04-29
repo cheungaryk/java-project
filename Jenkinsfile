@@ -50,14 +50,6 @@ pipeline {
       }
     }
 
-    stage("Reset Docker") {
-      agent any
-      steps {
-        sh "sudo systemctl daemon-reload"
-        sh "sudo systemctl restart docker"
-      }
-    }
-
     stage("Test on Debian") {
       agent {
         docker 'openjdk:8u121-jre'
