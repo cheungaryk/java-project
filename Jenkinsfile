@@ -64,7 +64,7 @@ pipeline {
         branch 'master'
       }
       steps {
-        sh "cp /var/www/html/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/green/rectangle_${env.BUILD_NUMBER}.jar"
+        sh "cp /var/www/html/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/green/rectangle_${env.BUILD_NUMBER}.jar"
       }
     }
 
@@ -80,6 +80,8 @@ pipeline {
         sh "git stash"
         echo "Checking Out Development Branch"
         sh 'git checkout development'
+        echo "Pulling latest code from Remote Development Branch"
+        sh 'git pull'
         echo "Checking Out Master Branch"
         sh 'git checkout master'
         echo 'Merging Development into Master Branch'
@@ -88,6 +90,6 @@ pipeline {
         sh 'git push origin master'
       }
     }
-
   }
+  
 }
