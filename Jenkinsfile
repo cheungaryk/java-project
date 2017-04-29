@@ -84,6 +84,8 @@ pipeline {
         sh 'git pull'
         echo "Checking Out Master Branch"
         sh 'git checkout master'
+        echo "Pulling latest code from Remote Master Branch"
+        sh 'git pull'
         echo 'Merging Development into Master Branch'
         sh "git merge development"
         echo 'Pushing to Origin master'
@@ -91,5 +93,5 @@ pipeline {
       }
     }
   }
-  
+
 }
